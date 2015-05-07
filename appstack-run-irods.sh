@@ -35,11 +35,11 @@ sleep 3s
 
 # Setup irods environment
 echo "*** docker run setup-irods-icat-v4.0.3 ***"
-docker run -d --name icat --volumes-from data --link db:db -it setup-irods-icat-v4.1.0
+docker run --rm --volumes-from data --link db:db -it setup-irods-icat-v4.1.0
 sleep 3s
 
 # Lauch irods environment as docker container icat
-#echo "*** docker run irods-icat-v4.0.3 as icat ***"
-#docker run --volumes-from data --name icat --link db:db -d irods-icat-v4.0.3
+echo "*** docker run irods-icat-v4.0.3 as icat ***"
+docker run --volumes-from data --name icat --link db:db -d irods-icat-v4.1.0
 
 echo "*** FINISHED SCRIPT appstack-run-irods.sh ***"
